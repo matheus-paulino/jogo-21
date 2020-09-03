@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo do 21</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <!-- minify -->
+    <link
+      href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <!-- latest -->
+    <link
+      href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <!-- core style only -->
+    <link
+      href="https://unpkg.com/nes.css/css/nes-core.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/png" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="nes-container is-rounded is-dark is-centered">
+        <p>Jogo do 21</p>
+      </div>
+
+      <div class="container mt-2">
+        <div class="row text-center">
+          <div :class="['col-6', playerSelected == 1 ? 'active' : '']">
+            <img src="assets/player1.png" alt="Player 1" />
+            <p>Player 1</p>
+          </div>
+          <div :class="['col-6', playerSelected == 2 ? 'active' : '']">
+            <img src="assets/player2.png" alt="Player 2" />
+            <p>Player 2</p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row text-center d-flex justify-content-center">
+          <div class="d-flex flex-row">
+            <div class="col-md-6">
+              <a href="#">
+                <img
+                  src="assets/baralho-cartas.png"
+                  alt="Baralho"
+                  class="carts"
+                />
+              </a>
+            </div>
+            <div class="col-md-6">
+              <img class="cart" src="assets/carts/1.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <!-- row controlers-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="nes-container with-title is-centered mt-3 ml-1">
+              <p class="title">Controles</p>
+              <div class="d-flex flex-column">
+                <a
+                  href="#"
+                  class="btn btn-success mb-1"
+                  @click.prevent="changePlayer"
+                >
+                  Pular
+                </a>
+                <a href="#" class="btn btn-primary mb-1">Finalizar</a>
+                <a href="#" class="btn btn-danger">Resetar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end row controlers-->
+      </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          // Player 1 is default
+          playerSelected: 1,
+        },
+        methods: {
+          changePlayer() {
+            this.playerSelected = this.playerSelected == 1 ? 2 : 1;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

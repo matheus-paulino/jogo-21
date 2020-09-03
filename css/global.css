@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+pree,
+code,
+kbd,
+samp {
+  font-family: "Press Start 2P", cursive !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+.title {
+}
+
+.active img {
+  background: greenyellow;
+  padding: 5px;
+}
+
+img.carts {
+  max-width: 135px;
+}
+
+img.cart {
+  max-width: 123px;
+}
